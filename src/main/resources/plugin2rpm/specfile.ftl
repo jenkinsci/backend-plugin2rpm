@@ -46,5 +46,6 @@ ${displayName}
 %__rm -rf "%{buildroot}"
 
 %files
-%defattr(-,root,root)
+%defattr(-,hudson,hudson)
+%attr(0755,hudson,hudson) %dir %{workdir}/plugins 
 %{workdir}/plugins/${artifact.artifactId}.hpi
