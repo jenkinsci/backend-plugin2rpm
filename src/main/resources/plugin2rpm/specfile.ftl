@@ -14,8 +14,15 @@ BuildRoot: %{_tmppath}/build-%{name}-%{version}
 
 Source: ${artifact.artifactId}.hpi
 
+<#if requiredHudsonVersion!=null>
 PreReq: hudson >= ${requiredHudsonVersion}
+</#if>
+<#if requiredHudsonVersion==null>
+PreReq: hudson
+</#if>
+<#if dependencies != "">
 Requires: ${dependencies}
+</#if>
 BuildArch: noarch
 
 %description
